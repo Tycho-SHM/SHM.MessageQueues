@@ -1,0 +1,44 @@
+name: Build and Publish NuGet Packages
+
+on:
+  push:
+    branches: [ main ]
+    tags:
+      - 'v*'
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Important for versioning with GitVersion
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Package
+        run: dotnet pack --configuration Release --no-build --output ./nupkgs
+
+      - name: Setup NuGet Source
+        run: |
+          dotnet nuget add source https://nuget.pkg.github.com/Tycho-SHM/index.json \
+            --name github \
+            --username Tycho-SHM \
+            --password ${{ secrets.GITHUB_TOKEN }} \
+            --store-password-in-clear-text
+
+      - name: Push to GitHub Package Registry
+        if: github.event_name != 'pull_request'
+        run: dotnet nuget push ./nupkgs/*.nupkg --source github --skip-duplicate
