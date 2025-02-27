@@ -4,7 +4,7 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <Version>0.4</Version>
+        <Version>0.5</Version>
         <Authors>Tycho-SHM</Authors>
         <Title>SHM.MessageQueues.RabbitMQ</Title>
         <RepositoryUrl>https://github.com/Tycho-SHM/SHM.MessageQueues</RepositoryUrl>
