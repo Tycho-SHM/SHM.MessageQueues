@@ -6,9 +6,9 @@ namespace SHM.MessageQueues.RabbitMQ;
 
 public static class RabbitMQServiceExtension
 {
-    public static IServiceCollection RegisterSHMRabbitMQ(this IServiceCollection services, RabbitMQOptions rabbitMQOptions)
+    public static IServiceCollection RegisterSHMRabbitMQ(this IServiceCollection services, Action<RabbitMQOptions> configureOptions)
     {
-        services.ConfigureOptions(rabbitMQOptions);
+        services.Configure(configureOptions);
         services.TryAddSingleton<IMessageBrokerConnection, RabbitMQConnection>();
         return services;
     }
