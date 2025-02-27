@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SHM.MessageQueues.Abstractions", "SHM.MessageQueues.Abstractions\SHM.MessageQueues.Abstractions.csproj", "{20B8F102-40AD-44DA-ADB6-ED68A7D536A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SHM.MessageQueues.RabbitMQ", "SHM.MessageQueues.RabbitMQ\SHM.MessageQueues.RabbitMQ.csproj", "{DC9FCB0E-5753-4FD1-B506-A2D3ACB8D6FC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{20B8F102-40AD-44DA-ADB6-ED68A7D536A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20B8F102-40AD-44DA-ADB6-ED68A7D536A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20B8F102-40AD-44DA-ADB6-ED68A7D536A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20B8F102-40AD-44DA-ADB6-ED68A7D536A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC9FCB0E-5753-4FD1-B506-A2D3ACB8D6FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC9FCB0E-5753-4FD1-B506-A2D3ACB8D6FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC9FCB0E-5753-4FD1-B506-A2D3ACB8D6FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC9FCB0E-5753-4FD1-B506-A2D3ACB8D6FC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
