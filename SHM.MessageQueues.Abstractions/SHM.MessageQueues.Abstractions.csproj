@@ -4,8 +4,10 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <Version>0.1</Version>
+        <Version>0.2</Version>
         <Authors>Tycho-SHM</Authors>
+        <Title>SHM.MessageQueues.Abstractions</Title>
+        <RepositoryUrl>https://github.com/Tycho-SHM/SHM.MessageQueues</RepositoryUrl>
     </PropertyGroup>
 
 </Project>

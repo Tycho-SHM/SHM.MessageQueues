@@ -1,5 +1,6 @@
 ﻿using System.Collections.Concurrent;
 using System.Text;
+using Microsoft.Extensions.Options;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using SHM.MessageQueues.Abstractions;
@@ -16,13 +17,14 @@ public class RabbitMQConnection : IMessageBrokerConnection
     private readonly SemaphoreSlim _channelSemaphore = new(1, 1);
     private readonly ConcurrentDictionary<string, IChannel?> _channels = new();
     
-    public RabbitMQConnection()
+    public RabbitMQConnection(IOptions<RabbitMQOptions> options)
     {
         _factory = new ConnectionFactory
         {
-            HostName = "localhost",
-            UserName = "admin",
-            Password = "Tycho123!",
+            HostName = options.Value.Hostname,
+            Port = options.Value.Port,
+            UserName = options.Value.Username,
+            Password = options.Value.Password
         };
     }
 
