@@ -67,10 +67,10 @@ public class RabbitMQConnection : IMessageBrokerConnection
                 channel = await connection.CreateChannelAsync();
                 _channels[queueName] = channel;
 
-                await _channels[queueName]!.QueueDeclareAsync(queueName, true, false, false, null);
+                await _channels[queueName]!.QueueDeclareAsync(queueName, true, false, false);
             }
             
-            return channel!;
+            return channel;
         }
         finally
         {
@@ -89,7 +89,7 @@ public class RabbitMQConnection : IMessageBrokerConnection
     {
         var channel = await GetChannel(queueName);
         var consumer = new AsyncEventingBasicConsumer(channel);
-        consumer.ReceivedAsync += async (model, ea) =>
+        consumer.ReceivedAsync += async (_, ea) =>
         {
             var body = ea.Body.ToArray();
             var message = Encoding.UTF8.GetString(body);
